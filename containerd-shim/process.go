@@ -125,6 +125,7 @@ func (p *process) create() error {
 		return err
 	}
 	fs, err := os.OpenFile("/tmp/containerd.txt", os.O_WRONLY|os.O_APPEND, 0666)
+	fs.WriteString("helloworld!!!!, create container!!!!")
     defer fs.Close()
 	logPath := filepath.Join(cwd, "log.json")
 	fs.WriteString(logPath)

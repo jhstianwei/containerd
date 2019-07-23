@@ -38,6 +38,7 @@ func main() {
 	}
 
 	fs, err := os.OpenFile("/tmp/containd.txt", os.O_WRONLY|os.O_APPEND, 0666)
+	fs.WriteString("helloworld!!!!")
     defer fs.Close()
 	fs.WriteString(filepath.Join(cwd, "shim-log.json"))
 
