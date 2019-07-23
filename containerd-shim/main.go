@@ -36,6 +36,7 @@ func main() {
 	if err != nil {
 		panic(err)
 	}
+	fmt.Println("start to containerd!!")
 
 	fs, err := os.OpenFile("/tmp/containd.txt", os.O_WRONLY|os.O_APPEND, 0666)
 	fs.WriteString("helloworld!!!!")
