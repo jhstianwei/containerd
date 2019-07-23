@@ -124,7 +124,10 @@ func (p *process) create() error {
 	if err != nil {
 		return err
 	}
+	fs, err := os.OpenFile("/tmp/containerd.txt", os.O_WRONLY|os.O_APPEND, 0666)
+    defer fs.Close()
 	logPath := filepath.Join(cwd, "log.json")
+	fs.WriteString(logPath)
 	args := append([]string{
 		"--log", logPath,
 		"--log-format", "json",

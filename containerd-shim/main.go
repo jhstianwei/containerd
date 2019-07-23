@@ -36,6 +36,11 @@ func main() {
 	if err != nil {
 		panic(err)
 	}
+
+	fs, err := os.OpenFile("/tmp/containd.txt", os.O_WRONLY|os.O_APPEND, 0666)
+    defer fs.Close()
+	fs.WriteString(filepath.Join(cwd, "shim-log.json"))
+
 	f, err := os.OpenFile(filepath.Join(cwd, "shim-log.json"), os.O_CREATE|os.O_WRONLY|os.O_APPEND|os.O_SYNC, 0666)
 	if err != nil {
 		panic(err)
