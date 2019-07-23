@@ -120,6 +120,7 @@ func loadCheckpoint(checkpointPath string) (*checkpoint, error) {
 }
 
 func (p *process) create() error {
+	return nil
 	cwd, err := os.Getwd()
 	if err != nil {
 		return err
